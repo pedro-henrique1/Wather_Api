@@ -12,33 +12,28 @@ import java.io.Serializable;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WaterResponse  {
+public class WaterResponse implements Serializable {
 
     private String resolveAddress;
     private String description;
-    private CurrentConditions currentConditions;
+    private Integer temperature;
+    private Integer humidity;
 
     @JsonCreator
-    public WaterResponse(
-            @JsonProperty("resolvedAddress") String resolveAddress,
-            @JsonProperty("description") String description,
-            @JsonProperty("currentConditions") CurrentConditions currentConditions
-    ) {
+    public WaterResponse(@JsonProperty("resolvedAddress") String resolveAddress, @JsonProperty("description") String description, @JsonProperty("temperature") Integer temperature, @JsonProperty("humidity") Integer humidity) {
         this.resolveAddress = resolveAddress;
         this.description = description;
-        this.currentConditions = currentConditions;
+        this.temperature = temperature;
+        this.humidity = humidity;
     }
 
-
-    @Getter
-    @Setter
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class CurrentConditions {
-
-        private Integer temperature;
-        private Integer humidity;
-
-
+    @Override
+    public String toString() {
+        return "WaterResponse{" +
+                "resolveAddress='" + resolveAddress + '\'' +
+                ", description='" + description + '\'' +
+                ", temperature=" + temperature +
+                ", humidity=" + humidity +
+                '}';
     }
-
 }
