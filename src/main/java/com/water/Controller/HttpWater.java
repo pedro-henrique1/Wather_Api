@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RestController
 @RequestMapping("/rest")
 public class HttpWater {
+
+
     @Autowired
     WaterService waterService = new WaterService();
 

@@ -12,10 +12,11 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class WaterService {
-    @Value("${api_key}")
+
+    @Value("${api.key}")
     private String apiKey;
 
-    @Value("${api_url}")
+    @Value("${api.url}")
     private String apiUrl;
 
     @Autowired
