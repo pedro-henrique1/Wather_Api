@@ -28,9 +28,11 @@ public class WaterService {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
+    private ObjectMapper objectMapper = new ObjectMapper();
+
+
 
     public WeatherResponse searchByCity(String city) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         Object responseRedis = redisTemplate.opsForValue().get(city);
         if (responseRedis instanceof String weatherDataJson) {
@@ -45,13 +47,18 @@ public class WaterService {
         try {
             RestTemplate restTemplate = new RestTemplate();
             String responseApi = restTemplate.getForObject(api_url, String.class);
-            if (responseApi != null && !responseApi.isEmpty()) {
-                redisTemplate.opsForValue().set(city, responseApi, 20, TimeUnit.MINUTES);
-                return ResponseEntity.ok(responseApi);
+            if (responseApi != null && !responseApi.isEmpty() ) {
+
+                WeatherResponse weatherResponse = objectMapper.readValue(responseApi, WeatherResponse.class);
+
+                String weatherResponseJson = objectMapper.writeValueAsString(weatherResponse);
+
+                redisTemplate.opsForValue().set(city, weatherResponseJson, 20, TimeUnit.MINUTES);
+                return ResponseEntity.ok(weatherResponseJson);
             }
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Cidade não encontrada");
-        } catch (Exception e) {
+        } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro a buscar a cidade");
         }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dados não encontrados para a cidade: " + city);
     }
 }
