@@ -27,7 +27,6 @@ public class WeatherResponse {
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Day {
     private String datetime;           // Data no formato "YYYY-MM-DD"
-    private long datetimeEpoch;        // Timestamp em epoch (segundos)
     private double tempmax;            // Temperatura máxima em graus Celsius
     private double tempmin;            // Temperatura mínima em graus Celsius
     private double temp;               // Temperatura atual em graus Celsius
@@ -45,18 +44,10 @@ class Day {
     private double windgust;           // Rajada de vento em km/h ou m/s
     private double windspeed;          // Velocidade do vento em km/h ou m/s
     private double winddir;            // Direção do vento em graus
-    private double pressure;           // Pressão atmosférica em hPa
     private double cloudcover;         // Cobertura de nuvens em porcentagem
     private double visibility;         // Visibilidade em km
-    private double solarradiation;     // Radiação solar em W/m²
-    private double solarenergy;        // Energia solar em kWh/m²
     private double uvindex;            // Índice UV
     private double severerisk;         // Risco severo (escala de 1 a 10)
-    private String sunrise;            // Horário do nascer do sol
-    private long sunriseEpoch;         // Timestamp do nascer do sol em epoch
-    private String sunset;             // Horário do pôr do sol
-    private long sunsetEpoch;          // Timestamp do pôr do sol em epoch
-    private double moonphase;          // Fase da lua (0.0 a 1.0)
     private String conditions;         // Condições meteorológicas (ex: "Parcialmente nublado")
     private String description;        // Descrição detalhada das condições meteorológicas
     private String icon;               // Ícone que representa as condições
@@ -66,7 +57,6 @@ class Day {
 @JsonIgnoreProperties(ignoreUnknown = true)
 class CurrentConditions {
     private String datetime;           // Hora no formato "HH:mm:ss"
-    private long datetimeEpoch;        // Timestamp em epoch (segundos)
     private double temp;               // Temperatura atual em graus Celsius
     private double feelslike;          // Temperatura percebida atual em graus Celsius
     private double humidity;            // Umidade em porcentagem
@@ -79,17 +69,11 @@ class CurrentConditions {
     private double windgust;           // Rajada de vento em km/h ou m/s
     private double windspeed;          // Velocidade do vento em km/h ou m/s
     private double winddir;            // Direção do vento em graus
-    private double pressure;           // Pressão atmosférica em hPa
     private double visibility;         // Visibilidade em km
     private double cloudcover;         // Cobertura de nuvens em porcentagem
     private double solarradiation;     // Radiação solar em W/m²
-    private double solarenergy;        // Energia solar em kWh/m²
     private double uvindex;            // Índice UV
     private double severerisk;         // Risco severo (escala de 1 a 10)
     private String conditions;         // Condições meteorológicas (ex: "Parcialmente nublado")
     private String icon;               // Ícone que representa as condições
-    private String sunrise;            // Horário do nascer do sol
-    private long sunriseEpoch;         // Timestamp do nascer do sol em epoch
-    private String sunset;             // Horário do pôr do sol
-    private long sunsetEpoch;          // Timestamp do pôr do sol em epoch
 }
