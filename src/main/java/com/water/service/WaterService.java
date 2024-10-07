@@ -1,5 +1,10 @@
 package com.water.service;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.water.dto.WeatherResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -8,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -23,12 +29,17 @@ public class WaterService {
     private RedisTemplate<String, Object> redisTemplate;
 
 
-    public Object searchByCity(String city) {
-        return redisTemplate.opsForValue().get(city);
+    public WeatherResponse searchByCity(String city) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        Object responseRedis = redisTemplate.opsForValue().get(city);
+        if (responseRedis instanceof String weatherDataJson) {
+            return objectMapper.readValue(weatherDataJson, WeatherResponse.class);
+        }
+        return null;
     }
 
     public Object getWeather(String city) {
-
         String api_url = apiUrl + city + "?key=" + apiKey + "&lang=pt&unitGroup=metric";
 
         try {

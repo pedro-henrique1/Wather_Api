@@ -1,9 +1,15 @@
 package com.water.Controller;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.water.dto.WeatherResponse;
 import com.water.service.WaterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/rest")
@@ -14,8 +20,9 @@ public class HttpWater {
     WaterService waterService = new WaterService();
 
     @GetMapping("/{city}")
-    public Object getWaterData(@PathVariable String city) {
-        Object cachedData = waterService.searchByCity(city);
+    public Object getWaterData(@PathVariable String city) throws IOException {
+
+        WeatherResponse cachedData = waterService.searchByCity(city);
 
         // existe no cache
         if (cachedData != null) {
