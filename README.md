@@ -50,7 +50,7 @@ A API fornece um único endpoint GET para retornar os dados de clima armazenados
 ### Exemplo de chamada de API:
 
 ```bash
-   curl -X GET http://localhost:8080/api/clima/São Paulo
+   curl -X GET http://localhost:8080/api/clima/São-Paulo
 ```
 
 
