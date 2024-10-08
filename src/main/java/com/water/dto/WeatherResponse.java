@@ -3,7 +3,6 @@ package com.water.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
-import java.io.Serializable;
 import java.util.List;
 
 

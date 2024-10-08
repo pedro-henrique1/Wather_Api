@@ -1,8 +1,5 @@
 package com.water.Controller;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.water.dto.WeatherResponse;
 import com.water.service.WaterService;
 import org.springframework.beans.factory.annotation.Autowired;
