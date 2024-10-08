@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class WaterService {
@@ -28,7 +27,6 @@ public class WaterService {
     private RedisTemplate<String, Object> redisTemplate;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-
 
 
     public WeatherResponse searchByCity(String city) throws IOException {
@@ -46,13 +44,13 @@ public class WaterService {
         try {
             RestTemplate restTemplate = new RestTemplate();
             String responseApi = restTemplate.getForObject(api_url, String.class);
-            if (responseApi != null && !responseApi.isEmpty() ) {
+            if (responseApi != null && !responseApi.isEmpty()) {
 
                 WeatherResponse weatherResponse = objectMapper.readValue(responseApi, WeatherResponse.class);
 
                 String weatherResponseJson = objectMapper.writeValueAsString(weatherResponse);
 
-                redisTemplate.opsForValue().set(city, weatherResponseJson, 20, TimeUnit.MINUTES);
+                redisTemplate.opsForValue().set(city, weatherResponseJson);
                 return ResponseEntity.ok(weatherResponseJson);
             }
         } catch (IOException e) {
