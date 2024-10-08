@@ -20,7 +20,7 @@ Este projeto é uma API RESTful construída com Spring Boot que integra dados de
 - Clone o repositório
 
 ```git
-  git clone https://github.com/pedro-henrique1/Water_Api.git
+  git clone https://github.com/pedro-henrique1/Wather_Api.git
   cd task-cli
 ```
 
