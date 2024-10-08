@@ -27,7 +27,7 @@ public class WaterService {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
 
 
