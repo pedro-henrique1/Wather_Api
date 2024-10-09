@@ -262,8 +262,4 @@ A API fornece um único endpoint GET para retornar os dados de clima armazenados
 
 ```
 # Atualização e Expiração de Cache
-Os dados são armazenados no Redis com um tempo de expiração configurável, que pode ser definido no arquivo application.properties. Você pode definir o tempo de vida dos dados cacheados com a seguinte propriedade:
-
-```properties
-spring.cache.redis.time-to-live=1200000
-```
+Os dados são armazenados no Redis com um tempo de expiração de 20 minutos, que pode ser mudado. 
