@@ -1,6 +1,7 @@
 package com.water.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.util.List;
@@ -50,6 +51,32 @@ class Day {
     private String conditions;         // Condições meteorológicas (ex: "Parcialmente nublado")
     private String description;        // Descrição detalhada das condições meteorológicas
     private String icon;               // Ícone que representa as condições
+    @JsonProperty("hours")
+    private List<Hour> hours;
+}
+
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Hour {
+    private String datetime; // Hora do dia no formato de string
+    private double temp; // Temperatura atual em graus Celsius
+    private double feelslike; // Sensação térmica em graus Celsius
+    private double humidity; // Umidade relativa do ar em percentual
+    private double dew; // Ponto de orvalho em graus Celsius
+    private double precip; // Precipitação em milímetros
+    private double precipprob; // Probabilidade de precipitação em percentual
+    private double snow; // Quantidade de neve (se houver) em milímetros
+    private double snowdepth; // Profundidade da neve (se houver) em centímetros
+    private List<String> preciptype; // Tipo de precipitação, como "rain", "snow", etc.
+    private double windgust; // Rajada de vento em km/h
+    private double windspeed; // Velocidade do vento em km/h
+    private double winddir; // Direção do vento em graus (azimute)
+    private double visibility; // Visibilidade em km
+    private double cloudcover; // Cobertura de nuvens em percentual
+    private int severerisk; // Nível de risco severo, se houver
+    private String conditions; // Condições climáticas descritas (ex: "Chuva, Parcialmente nublado")
+    private String icon; // Ícone que representa as condições climáticas
+
 }
 
 @Data
