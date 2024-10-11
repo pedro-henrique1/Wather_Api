@@ -21,7 +21,7 @@ Este projeto é uma API RESTful construída com Spring Boot que integra dados de
 
 ```git
   git clone https://github.com/pedro-henrique1/Wather_Api.git
-  cd task-cli
+  cd Wather_Api
 ```
 
 - Configure a key gerado por um serviço externo com [esse](https://www.visualcrossing.com/weather-api):
