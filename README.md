@@ -158,6 +158,7 @@ A API fornece um único endpoint GET para retornar os dados de clima armazenados
                     "conditions": "Chuva, Parcialmente nublado",
                     "icon": "rain"
                 },
+          ]
 }
 ```
 # Atualização e Expiração de Cache
