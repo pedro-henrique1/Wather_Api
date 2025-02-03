@@ -12,7 +12,7 @@ Este projeto é uma API RESTful construída com Spring Boot que integra dados de
 - Redução do tempo de resposta através do uso de cache em memória.
 
 # Requisitos 
-[//]: # (- É necessario ter o [java]&#40;https://www.java.com/download/ie_manual.jsp&#41; instalado em sua maquina para rodar o programa e tambem o [maven]&#40;https://maven.apache.org/install.html&#41;.)
+[//]: # (- É necessário ter o [java]&#40;https://www.java.com/download/ie_manual.jsp&#41; instalado em sua maquina para rodar o programa e tambem o [maven]&#40;https://maven.apache.org/install.html&#41;.)
 - Docker e Docker Compose: Se ainda não estiverem instalados, baixe-os nos links abaixo:
   - [docker](https://docs.docker.com/get-started/get-docker/) 
   - [docker compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04). 
@@ -29,7 +29,7 @@ Este projeto é uma API RESTful construída com Spring Boot que integra dados de
   cd Wather_Api
 ```
 
-- Configure a key gerado por um serviço externo com [esse](https://www.visualcrossing.com/weather-api):
+- Configure a key gerada por um serviço externo com [esse](https://www.visualcrossing.com/weather-api):
 
 ```
   cd src/main/resources
@@ -38,7 +38,7 @@ Este projeto é uma API RESTful construída com Spring Boot que integra dados de
 ```
 
 
--  Iniciando rodar o projeto:
+-  Iniciando o projeto:
 
 ```
  docker-compose up --build
