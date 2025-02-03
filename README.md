@@ -12,8 +12,13 @@ Este projeto é uma API RESTful construída com Spring Boot que integra dados de
 - Redução do tempo de resposta através do uso de cache em memória.
 
 # Requisitos 
-- É necessario ter o [java](https://www.java.com/download/ie_manual.jsp) instalado em sua maquina para rodar o programa e tambem o [maven](https://maven.apache.org/install.html).
-- Támbem e necessario ter o [redis](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/) baixado e configurado. 
+[//]: # (- É necessario ter o [java]&#40;https://www.java.com/download/ie_manual.jsp&#41; instalado em sua maquina para rodar o programa e tambem o [maven]&#40;https://maven.apache.org/install.html&#41;.)
+- Docker e Docker Compose: Se ainda não estiverem instalados, baixe-os nos links abaixo:
+  - [docker](https://docs.docker.com/get-started/get-docker/) 
+  - [docker compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04). 
+- Redis: O Redis precisa estar baixado e configurado corretamente. 
+  - Instalação e documentação: [redis](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/) 
+
 
 # Instalação
 
@@ -33,12 +38,11 @@ Este projeto é uma API RESTful construída com Spring Boot que integra dados de
 ```
 
 
-- Instalar Dependência:
+-  Iniciando rodar o projeto:
 
 ```
-  mvn clean install
-  mvn spring-boot:run
-
+ docker-compose up --build
+ 
 ```
 
 
